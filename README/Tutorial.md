@@ -25,34 +25,35 @@ The eventgen is configured by setting up an eventgen.conf.  If deployed as a Spl
 
 Eventgen.conf can have one or more stanzas, of which the stanza name is a sample file it will be reading from.  There a number of options available in each stanza.  Let's look at the first tutorial file and break it down option by option.
 
-    [sample.tutorial1]
-    mode = replay
-    sampletype = csv
-    timeMultiple = 2
-    backfill = -15m
-    backfillSearch = index=main sourcetype=splunkd
-    
-    outputMode = splunkstream
-    splunkHost = localhost
-    splunkUser = admin
-    splunkPass = changeme
-    
-    token.0.token = \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}
-    token.0.replacementType = timestamp
-    token.0.replacement = %Y-%m-%d %H:%M:%S,%f
-    
-    token.1.token = \d{2}-\d{2}-\d{4} \d{2}:\d{2}:\d{2}.\d{3}
-    token.1.replacementType = timestamp
-    token.1.replacement = %m-%d-%Y %H:%M:%S.%f
-    
-    token.2.token = \d{2}/\w{3}/\d{4}:\d{2}:\d{2}\:\d{2}.\d{3}
-    token.2.replacementType = timestamp
-    token.2.replacement = %d/%b/%Y:%H:%M:%S.%f
-    
-    token.3.token = \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}
-    token.3.replacementType = timestamp
-    token.3.replacement = %Y-%m-%d %H:%M:%S
+```
+[sample.tutorial1]
+mode = replay
+sampletype = csv
+timeMultiple = 2
+backfill = -15m
+backfillSearch = index=main sourcetype=splunkd
 
+outputMode = splunkstream
+splunkHost = localhost
+splunkUser = admin
+splunkPass = changeme
+
+token.0.token = \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}
+token.0.replacementType = timestamp
+token.0.replacement = %Y-%m-%d %H:%M:%S,%f
+
+token.1.token = \d{2}-\d{2}-\d{4} \d{2}:\d{2}:\d{2}.\d{3}
+token.1.replacementType = timestamp
+token.1.replacement = %m-%d-%Y %H:%M:%S.%f
+
+token.2.token = \d{2}/\w{3}/\d{4}:\d{2}:\d{2}\:\d{2}.\d{3}
+token.2.replacementType = timestamp
+token.2.replacement = %d/%b/%Y:%H:%M:%S.%f
+
+token.3.token = \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}
+token.3.replacementType = timestamp
+token.3.replacement = %Y-%m-%d %H:%M:%S
+```
     [sample.tutorial1]
 This is the stanza name and the name of the file in the samples directory of the eventgen or your app that you want to read from.
 
